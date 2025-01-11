@@ -1,4 +1,5 @@
 name: workflow strategy
+run-name: hello | hai - ${{ inputs.debug }}
 on:
  push:
  workflow_dispatch: 
