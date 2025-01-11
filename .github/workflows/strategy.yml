@@ -1,0 +1,21 @@
+name: workflow strategy
+on:
+ push
+jobs:
+ build-trigger:
+  runs-on: ${{ matrix.os }}
+  strategy:
+   matrix:
+    os:
+    - ubuntu-latest
+    - windows-latest
+    node-version: [ v22.6.0, v21.7.3 ]
+  steps:
+  - name: node setup
+    uses: actions/setup-node@v4.1.0
+    with:
+     node-version: ${{ matrix.node-version }}
+  - run: |
+     echo " runs-on: ${{ matrix.os }}"
+     echo " node-version: ${{ matrix.node-version }}"
+ 
